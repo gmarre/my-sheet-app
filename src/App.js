@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [valeurFormulaire, setValeurFormulaire] = useState('');
+
+  const handleChange = (e) => {
+    setValeurFormulaire(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Valeur soumise :', valeurFormulaire);
+    // Ajoutez ici la logique pour traiter la valeur du formulaire comme nécessaire.
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Mon Application React</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Nom :
+          <input type="text" value={valeurFormulaire} onChange={handleChange} />
+        </label>
+        <button type="submit">Soumettre</button>
+      </form>
     </div>
   );
-}
+};
 
 export default App;
