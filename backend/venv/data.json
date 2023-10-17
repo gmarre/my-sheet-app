@@ -1,0 +1,19 @@
+{
+  "scenarios": [
+    {
+      "scenarioName": "PCDU",
+      "steps": [
+        {
+          "stepName": "step1",
+          "age": "5",
+          "taille": "10"
+        },
+        {
+          "stepName": "step1",
+          "age": "5",
+          "taille": "10"
+        }
+      ]
+    }
+  ]
+}
