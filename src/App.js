@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import PopUpModifScenario from './PopUpModifScenario';
 
 const App = () => {
   const [scenarios, setScenarios] = useState([]);
@@ -9,6 +10,8 @@ const App = () => {
     age: 0,
     taille: 0,
   });
+  const [isPopUpOpen, setPopUpOpen] = useState(false);
+  const [selectedScenarioIndex, setSelectedScenarioIndex] = useState(null);
 
   const handleScenarioChange = (e) => {
     setNewScenario(e.target.value);
@@ -67,6 +70,28 @@ const App = () => {
     setScenarios(updatedScenarios);
   }
 
+  const openModifyPopUp = (scenarioIndex) => {
+    // Mettez à jour l'état pour indiquer que la pop-up doit être ouverte
+    setPopUpOpen(true);
+    // Stockez l'index du scénario sélectionné
+    setSelectedScenarioIndex(scenarioIndex);
+  };
+
+  const closePopUp = () => {
+    // Mettez à jour l'état pour indiquer que la pop-up doit être fermée
+    setPopUpOpen(false);
+    // Réinitialisez l'index du scénario sélectionné
+    setSelectedScenarioIndex(null);
+  };
+
+  // Ajoutez la déclaration de modifyScenario
+  const modifyScenario = (modifiedScenario) => {
+    // Logique pour modifier le scénario
+    console.log('modifyScenario called with:', modifiedScenario);
+
+    // Vous devrez peut-être mettre à jour scenarios ici
+    // avec le scénario modifié
+  };
 
   const saveData = async () => {
     try {
@@ -125,7 +150,7 @@ const App = () => {
           {scenarios.map((scenario, index) => (
             <li key={index}>
               {scenario.scenarioName}
-              <button name="Delete" value="Delete Scenario" onClick={() => deleteScenario(index)}>
+              <button name="DeleteScenario" value="Delete Scenario" onClick={() => deleteScenario(index)}>
                 <svg
                   className="delete-icon"
                   viewBox="0 0 408.483 408.483"
@@ -140,11 +165,20 @@ const App = () => {
                 </svg>
                 {/*<img src="\Users\MARRE\my-sheet-app\images\rubbish.svg" alt="Delete Scenario" className="delete-icon" />*/}
               </button>
+              <button onClick={() => openModifyPopUp(index)}>Modify Scenario</button>
+              {/* Condition pour afficher la pop-up de modification */}
+              {isPopUpOpen && selectedScenarioIndex === index && (
+                <PopUpModifScenario
+                  scenario={scenarios[selectedScenarioIndex]}
+                  modifyScenario={modifyScenario}
+                  onClose={closePopUp}
+                />
+              )}
               <ul>
                 {scenario.steps.map((step, stepIndex) => (
                   <li key={stepIndex}>
                     {step.stepName} - Âge: {step.age}, Taille: {step.taille} 
-                    <button name="Delete" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
+                    <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
                       <svg
                         className="delete-icon"
                         viewBox="0 0 408.483 408.483"
