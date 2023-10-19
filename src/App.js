@@ -36,40 +36,19 @@ const App = () => {
       taille: newStep.taille,
     };
   
-    setScenarios((prevScenarios) => {
-      const updatedScenarios = [...prevScenarios];
-      const currentScenario = updatedScenarios[updatedScenarios.length - 1];
+    if (scenarios.length === 0) {
+      scenarios.push({ scenarioName: 'Default', steps: [newStepInstance] });
+    } else {
+      const lastScenarios = scenarios[scenarios.length - 1]
+      lastScenarios.steps.push(newStepInstance);
+    }
   
-      if (!currentScenario.steps) {
-        currentScenario.steps = [];
-      }
+  setNewStep({
+    stepName: '',
+    age: 0,
+    taille: 0,
+  });
   
-      // Ajoutez la nouvelle étape au tableau `steps`
-      currentScenario.steps = [...currentScenario.steps, newStepInstance];
-  
-      // Mettez à jour le tableau `scenarios`
-      console.log('Updated Scenarios:', updatedScenarios);
-  
-      return updatedScenarios;
-    });
-  
-    setNewStep({
-      stepName: '',
-      age: 0,
-      taille: 0,
-    });
-  
-    // Supprimez le dernier élément si nécessaire
-    setScenarios((prevScenarios) => {
-      const updatedScenarios = [...prevScenarios];
-      const currentScenario = updatedScenarios[updatedScenarios.length - 1];
-  
-      if (currentScenario.steps.length === 2) {
-        currentScenario.steps.pop();
-      }
-  
-      return updatedScenarios;
-    });
   };
   
 
@@ -129,11 +108,15 @@ const App = () => {
         <ul>
           {scenarios.map((scenario, index) => (
             <li key={index}>
-              {scenario.scenarioName}
+              {scenario.scenarioName},
+              <input type="submit" name="Delete" value="Delete Scenario" />
+              {/* faire le bouton on click delete */}
               <ul>
                 {scenario.steps.map((step, stepIndex) => (
                   <li key={stepIndex}>
-                    {step.stepName} - Âge: {step.age}, Taille: {step.taille}
+                    {step.stepName} - Âge: {step.age}, Taille: {step.taille}, 
+                    <input type="submit" name="Delete" value="Delete Step" />
+                    {/* faire le bouton on click pour delete*/}
                   </li>
                 ))}
               </ul>
