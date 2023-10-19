@@ -1,52 +1,12 @@
 {
   "scenarios": [
     {
-      "scenarioName": "a",
+      "scenarioName": "abcd",
       "steps": [
         {
-          "stepName": "a",
-          "age": "5",
-          "taille": "7"
-        },
-        {
-          "stepName": "nb",
-          "age": "4",
-          "taille": "2"
-        }
-      ]
-    },
-    {
-      "scenarioName": "pcdu",
-      "steps": [
-        {
-          "stepName": "a",
-          "age": "10",
-          "taille": "15"
-        },
-        {
-          "stepName": "b",
-          "age": "4",
-          "taille": "8"
-        },
-        {
-          "stepName": "c",
-          "age": "7",
-          "taille": "9"
-        }
-      ]
-    },
-    {
-      "scenarioName": "obc",
-      "steps": [
-        {
-          "stepName": "a",
-          "age": "1",
-          "taille": "2"
-        },
-        {
-          "stepName": "b",
-          "age": "5",
-          "taille": "4"
+          "stepName": "ma",
+          "age": "3",
+          "taille": "45"
         }
       ]
     }

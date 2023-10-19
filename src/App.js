@@ -172,6 +172,7 @@ const App = () => {
                   scenario={scenarios[selectedScenarioIndex]}
                   modifyScenario={modifyScenario}
                   onClose={closePopUp}
+                  selectedScenarioIndex={selectedScenarioIndex}
                 />
               )}
               <ul>

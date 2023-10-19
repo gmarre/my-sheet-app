@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import './PopUpModifScenario.css';
 
-const PopUpModifScenario = ({ onClose }) => {
+const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
+    
+    const message = `Modifier le Scénario ayant l'index : ${selectedScenarioIndex}`;
+    const nameScenario = scenario ? scenario.scenarioName : '';
+    
     const openPopUp = () => {
       console.log('Pop-up ouverte');
     };
@@ -20,9 +24,9 @@ const PopUpModifScenario = ({ onClose }) => {
     return (
       <div className="popup">
         <div className="popup-content">
-          <h2>Modifier le Scénario</h2>
-          {/* Contenu de la pop-up (à compléter) */}
-          <button onClick={closePopUp}>Fermer</button>
+            <h2> {message} </h2>
+            <p>Nom du Scénario : {nameScenario}</p>
+            <button onClick={closePopUp}>Fermer</button>
         </div>
       </div>
     );
