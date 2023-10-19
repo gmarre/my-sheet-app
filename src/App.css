@@ -15,3 +15,10 @@ ul {
 li {
   margin-bottom: 10px;
 }
+
+/* App.css */
+.delete-icon {
+  width: 15px; /* Ajoutez d'autres styles spécifiques à votre image delete-icon */
+  height: 15px;
+  /* ... Ajoutez d'autres styles spécifiques à votre image delete-icon ... */
+}
