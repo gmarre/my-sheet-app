@@ -151,7 +151,7 @@ const App = () => {
             <li key={index}>
               {scenario.scenarioName}
               <button name="DeleteScenario" value="Delete Scenario" onClick={() => deleteScenario(index)}>
-                <svg
+                {/* <svg
                   className="delete-icon"
                   viewBox="0 0 408.483 408.483"
                   xmlns="http://www.w3.org/2000/svg"
@@ -162,8 +162,8 @@ const App = () => {
                       <path d="M343.567,21.043h-88.535V4.305c0-2.377-1.927-4.305-4.305-4.305H164.285c-2.377,0-4.304,1.928-4.304,4.305v16.737H64.916c-7.125,0-12.9,5.776-12.9,12.901V74.47h304.451V33.944C356.467,26.819,350.692,21.043,343.567,21.043z" />
                     </g>
                   </g>
-                </svg>
-                {/*<img src="\Users\MARRE\my-sheet-app\images\rubbish.svg" alt="Delete Scenario" className="delete-icon" />*/}
+                </svg> */}
+                <img src='dustbin.png' className="delete-icon" />
               </button>
               <button onClick={() => openModifyPopUp(index)}>Modify Scenario</button>
               {/* Condition pour afficher la pop-up de modification */}

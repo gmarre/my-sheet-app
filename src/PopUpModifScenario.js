@@ -4,7 +4,7 @@ import './PopUpModifScenario.css';
 
 const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
     
-    const message = `Modifier le Scénario ayant l'index : ${selectedScenarioIndex}`;
+    const message = `Modifier le nom du Scénario d'index ${selectedScenarioIndex} ?`;
     const nameScenario = scenario ? scenario.scenarioName : '';
     
     const openPopUp = () => {
@@ -15,6 +15,11 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
       console.log('Pop-up fermée');
       onClose(); // Appeler la fonction onClose fournie par le parent (App.js)
     };
+
+    const handleModifyChange = (e) => {
+      scenario.scenarioName = e.target.value;
+    };
+
   
     // Appeler openPopUp lors du rendu initial
     React.useEffect(() => {
@@ -25,7 +30,7 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
       <div className="popup">
         <div className="popup-content">
             <h2> {message} </h2>
-            <p>Nom du Scénario : {nameScenario}</p>
+            <input type ="text" name="name" placeholder={nameScenario} onChange={handleModifyChange} />
             <button onClick={closePopUp}>Fermer</button>
         </div>
       </div>

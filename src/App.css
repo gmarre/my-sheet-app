@@ -16,6 +16,11 @@ li {
   margin-bottom: 10px;
 }
 
+img {
+  width:10px;
+  height:10px;
+}
+
 /* App.css */
 .delete-icon {
   width: 15px; /* Ajoutez d'autres styles spécifiques à votre image delete-icon */
