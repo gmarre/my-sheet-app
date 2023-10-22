@@ -31,7 +31,7 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
         <div className="popup-content">
             <h2> {message} </h2>
             <input type ="text" name="name" placeholder={nameScenario} onChange={handleModifyChange} />
-            <button onClick={closePopUp}>Fermer</button>
+            <button onClick={closePopUp}>Modifier</button>
         </div>
       </div>
     );

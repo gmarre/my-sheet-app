@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+// PopUpModifStep.js
+import React, { useState, useEffect } from 'react';
 import './PopUpModifStep.css';
 
-const PopUpModifStep = ({ scenario, onClose, selectedScenarioIndex }) => {
-  const nameScenario = scenario ? scenario.name : '';
-  const message = `Modifier le Step du Scenario ${nameScenario}`;
-  
-  {/*const [stepName, setStepName] = useState(scenario ? scenario.step.stepName : '');
-    const [stepAge, setStepAge] = useState(scenario ? scenario.step.age : '');
-    const [stepTaille, setStepTaille] = useState(scenario ? scenario.step.taille : ''); */}
+const PopUpModifStep = ({ step, onClose, selectedScenarioIndex, selectedStepIndex, modifyStep }) => {
+  const [stepName, setStepName] = useState('');
+  const nameStep = step ? step.stepName : '';
+  const ageStep = step ? step.age : '';
+  const tailleStep= step ? step.taille : '';
+
 
   const openPopUp = () => {
     console.log('Pop-up ouverte');
@@ -15,33 +15,39 @@ const PopUpModifStep = ({ scenario, onClose, selectedScenarioIndex }) => {
 
   const closePopUp = () => {
     console.log('Pop-up fermée');
-    onClose();
+    onClose(); // Appeler la fonction onClose fournie par le parent (App.js)
   };
 
-  {/*const handleModifyChangeName = (e) => {
-    setStepName(e.target.value);
+  const handleStepNameChange = (e) => {
+    step.stepName = e.target.value;
   };
 
-  const handleModifyChangeAge = (e) => {
-    setStepAge(e.target.value);
+  const handleStepAgeChange = (e) => {
+    step.age = e.target.value;
   };
 
-  const handleModifyChangeTaille = (e) => {
-    setStepTaille(e.target.value);
-  };*/}
+  const handleStepTailleChange = (e) => {
+    step.taille = e.target.value;
+  };
 
+  // Appeler openPopUp lors du rendu initial
   React.useEffect(() => {
     openPopUp();
   }, []);
 
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <h2>{message}</h2>
-        {/*<input type="text" name="StepName" placeholder={stepName} onChange={handleModifyChangeName} />
-        <input type="text" name="StepAge" placeholder={stepAge} onChange={handleModifyChangeAge} />
-        <input type="text" name="StepTaille" placeholder={stepTaille} onChange={handleModifyChangeTaille} />*/}
-        <button onClick={closePopUp}>Fermer</button>
+    <div className="popup-step">
+      <div className="popup-content-step">
+        <h2>Modifier le nom de l'Étape - {nameStep} </h2>
+        <label>
+          Nouveau Nom de l'Étape:
+          <input type="text" placeholder={nameStep} onChange={handleStepNameChange} />
+          Nouvel Age : 
+          <input type="text" placeholder={ageStep} onChange={handleStepAgeChange} />
+          Nouvel Taille : 
+          <input type="text" placeholder={tailleStep} onChange={handleStepTailleChange} />
+        </label>
+        <button onClick={closePopUp}>Modifier</button>
       </div>
     </div>
   );

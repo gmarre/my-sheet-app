@@ -13,8 +13,16 @@ const App = () => {
     age: 0,
     taille: 0,
   });
+
   const [isPopUpOpen, setPopUpOpen] = useState(false);
   const [selectedScenarioIndex, setSelectedScenarioIndex] = useState(null);
+
+  const [isStepPopUpOpen, setStepPopUpOpen] = useState(false);
+  const [selectedStepIndex, setSelectedStepIndex] = useState(null);
+
+  const [successMessage, setSuccessMessage] = useState(null);
+
+  
 
   const handleScenarioChange = (e) => {
     setNewScenario(e.target.value);
@@ -73,14 +81,14 @@ const App = () => {
     setScenarios(updatedScenarios);
   }
 
-  const openModifyPopUp = (scenarioIndex) => {
+  const openModifyScenarioPopUp = (scenarioIndex) => {
     // Mettez à jour l'état pour indiquer que la pop-up doit être ouverte
     setPopUpOpen(true);
     // Stockez l'index du scénario sélectionné
     setSelectedScenarioIndex(scenarioIndex);
   };
 
-  const closePopUp = () => {
+  const closeModifyScenarioPopUp = () => {
     // Mettez à jour l'état pour indiquer que la pop-up doit être fermée
     setPopUpOpen(false);
     // Réinitialisez l'index du scénario sélectionné
@@ -96,6 +104,25 @@ const App = () => {
     // avec le scénario modifié
   };
 
+  const openModifyStepPopUp = (scenarioIndex, stepIndex) => {
+    setStepPopUpOpen(true);
+    setSelectedScenarioIndex(scenarioIndex);
+    setSelectedStepIndex(stepIndex);
+  };
+
+  const closeModifyStepPopUp = () => {
+    setStepPopUpOpen(false);
+    setSelectedStepIndex(null);
+  };
+
+  // Ajouter la déclaration de modifyStep
+  const modifyStep = (modifiedStep) => {
+    // Logique pour modifier l'étape
+    console.log('modifyStep called with:', modifiedStep);
+    // Vous devrez peut-être mettre à jour scenarios ici
+    // avec l'étape modifiée
+  };
+
   const saveData = async () => {
     try {
       const response = await fetch('http://localhost:5000/save-data', {
@@ -105,9 +132,14 @@ const App = () => {
         },
         body: JSON.stringify({ scenarios }),
       });
-
+  
       if (response.ok) {
-        console.log('Données enregistrées avec succès.');
+        setSuccessMessage('Données enregistrées avec succès.');
+  
+        // Vous pouvez également réinitialiser le message après un certain délai
+        setTimeout(() => {
+          setSuccessMessage(null);
+        }, 3000); // 3000 millisecondes (3 secondes) par exemple
       } else {
         console.error('Erreur lors de l\'enregistrement des données.');
       }
@@ -115,10 +147,7 @@ const App = () => {
       console.error('Erreur réseau :', error);
     }
   };
-
-  useEffect(() => {
-    console.log('Component updated:', scenarios);
-  }, [scenarios]);
+  
 
   return (
     <div className="App">
@@ -156,7 +185,7 @@ const App = () => {
               <button name="DeleteScenario" value="Delete Scenario" onClick={() => deleteScenario(index)}>
                 <img src={IconDustBin} className="delete-icon" />
               </button>
-              <button onClick={() => openModifyPopUp(index)}>
+              <button onClick={() => openModifyScenarioPopUp(index)}>
                 <img src={IconModifyBin} className="modify_icon" />
               </button>
               {/* Condition pour afficher la pop-up de modification */}
@@ -164,7 +193,7 @@ const App = () => {
                 <PopUpModifScenario
                   scenario={scenarios[selectedScenarioIndex]}
                   modifyScenario={modifyScenario}
-                  onClose={closePopUp}
+                  onClose={closeModifyScenarioPopUp}
                   selectedScenarioIndex={selectedScenarioIndex}
                 />
               )}
@@ -175,16 +204,17 @@ const App = () => {
                     <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
                       <img src={IconDustBin} className="delete-icon" />
                     </button>
-                    <button onClick={() => openModifyPopUp(index)}>
+                    <button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
                       <img src={IconModifyBin} className="modify_icon" />
                     </button>
-                    {/* Condition pour afficher la pop-up de modification */}
-                    {isPopUpOpen && selectedScenarioIndex !== null && scenarios[selectedScenarioIndex] && (
+                    {/* Condition pour afficher la pop-up de modification d'étape */}
+                    {isStepPopUpOpen && selectedScenarioIndex !== null && selectedStepIndex !== null && (
                       <PopUpModifStep
-                        scenario={scenarios[selectedScenarioIndex]}
-                        modifyScenario={modifyScenario}
-                        onClose={closePopUp}
+                        step={scenarios[selectedScenarioIndex].steps[selectedStepIndex]}
+                        onClose={closeModifyStepPopUp}
                         selectedScenarioIndex={selectedScenarioIndex}
+                        selectedStepIndex={selectedStepIndex}
+                        modifyStep={modifyStep}
                       />
                     )}
                   </li>
@@ -196,6 +226,7 @@ const App = () => {
       </div>
 
       <button onClick={saveData}>Enregistrer les Données</button>
+      {successMessage && <div className="success-message">{successMessage}</div>}
     </div>
   );
 };

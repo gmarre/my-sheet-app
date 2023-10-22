@@ -5,6 +5,8 @@
 
 input, button {
   margin: 5px;
+  color:black;
+  background-color: palegoldenrod;
 }
 
 ul {
@@ -33,4 +35,13 @@ img {
   width: 30px; /* Ajoutez d'autres styles spécifiques à votre image delete-icon */
   height: 30px;
   /* ... Ajoutez d'autres styles spécifiques à votre image delete-icon ... */
+}
+
+.success-message {
+  background-color: palegoldenrod;
+  color: black;
+  text-align: center;
+  position: fixed;
+  bottom: 10%;
+  width: 100%;
 }

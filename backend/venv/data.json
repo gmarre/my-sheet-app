@@ -1,12 +1,27 @@
 {
   "scenarios": [
     {
-      "scenarioName": "abcd",
+      "scenarioName": "pcdu",
       "steps": [
         {
-          "stepName": "ma",
-          "age": "3",
-          "taille": "45"
+          "stepName": "step1",
+          "age": "8",
+          "taille": "9"
+        },
+        {
+          "stepName": "step3",
+          "age": "18",
+          "taille": "7"
+        }
+      ]
+    },
+    {
+      "scenarioName": "OBC",
+      "steps": [
+        {
+          "stepName": "step3",
+          "age": "18",
+          "taille": "7"
         }
       ]
     }
