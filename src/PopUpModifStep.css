@@ -36,7 +36,6 @@
 }
 
 .popup-content-step button {
-  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -46,5 +45,5 @@
 }
 
 .popup-content-step button:last-child {
-  background-color: #ccc;
+  background-color: green;
 }

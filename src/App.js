@@ -125,7 +125,8 @@ const App = () => {
 
   const saveData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/save-data', {
+      // Première requête pour enregistrer les données au format JSON
+      const saveDataResponse = await fetch('http://localhost:5000/save-data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,13 +134,29 @@ const App = () => {
         body: JSON.stringify({ scenarios }),
       });
   
-      if (response.ok) {
-        setSuccessMessage('Données enregistrées avec succès.');
+      if (saveDataResponse.ok) {
+        console.log('Données enregistrées avec succès.');
   
-        // Vous pouvez également réinitialiser le message après un certain délai
-        setTimeout(() => {
-          setSuccessMessage(null);
-        }, 3000); // 3000 millisecondes (3 secondes) par exemple
+        // Deuxième requête pour générer le fichier .docx
+        const generateDocxResponse = await fetch('http://localhost:5000/generate-docx', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ scenarios }),
+        });
+  
+        if (generateDocxResponse.ok) {
+          console.log('Fichier .docx généré avec succès.');
+          setSuccessMessage('Données enregistrées avec succès.');
+  
+          // Réinitialise le message après un certain délai
+          setTimeout(() => {
+            setSuccessMessage(null);
+          }, 3000); // 3000 millisecondes (3 secondes) par exemple
+        } else {
+          console.error('Erreur lors de la génération du fichier .docx.');
+        }
       } else {
         console.error('Erreur lors de l\'enregistrement des données.');
       }
@@ -147,6 +164,7 @@ const App = () => {
       console.error('Erreur réseau :', error);
     }
   };
+  
   
 
   return (
@@ -204,6 +222,8 @@ const App = () => {
                       <th>Nom de l'Etape</th>
                       <th>Age</th>
                       <th>Actions</th>
+                      <th>Delete</th>
+                      <th>Update</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -212,12 +232,15 @@ const App = () => {
                       <td>{step.stepName}</td>
                       <td>{step.age}</td>
                       <td>{step.taille}</td>
-                      <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
+                      <td>
+                        <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
                         <img src={IconDustBin} className="delete-icon" />
                       </button>
-                      <button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
+                      </td>
+                      <td><button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
                         <img src={IconModifyBin} className="modify_icon" />
                       </button>
+                      </td>
                       {/* Condition pour afficher la pop-up de modification d'étape */}
                       {isStepPopUpOpen && selectedScenarioIndex !== null && selectedStepIndex !== null && (
                         <PopUpModifStep

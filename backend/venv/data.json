@@ -1,17 +1,17 @@
 {
   "scenarios": [
     {
-      "scenarioName": "pcdu",
+      "scenarioName": "Scenario1",
       "steps": [
         {
-          "stepName": "step1",
-          "age": "8",
-          "taille": "9"
+          "stepName": "a",
+          "age": "5",
+          "taille": "8"
         },
         {
-          "stepName": "step3",
-          "age": "18",
-          "taille": "7"
+          "stepName": "step2",
+          "age": "7",
+          "taille": "15"
         }
       ]
     },
@@ -19,8 +19,23 @@
       "scenarioName": "OBC",
       "steps": [
         {
+          "stepName": "step1",
+          "age": "5",
+          "taille": "8"
+        },
+        {
           "stepName": "step3",
-          "age": "18",
+          "age": "5",
+          "taille": "9"
+        }
+      ]
+    },
+    {
+      "scenarioName": "Pcdua",
+      "steps": [
+        {
+          "stepName": "step1",
+          "age": "8",
           "taille": "7"
         }
       ]
