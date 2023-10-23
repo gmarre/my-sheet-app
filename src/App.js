@@ -198,33 +198,45 @@ const App = () => {
                 />
               )}
               <ul>
-                {scenario.steps.map((step, stepIndex) => (
-                  <li key={stepIndex}>
-                    {step.stepName} - Âge: {step.age}, Taille: {step.taille} 
-                    <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
-                      <img src={IconDustBin} className="delete-icon" />
-                    </button>
-                    <button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
-                      <img src={IconModifyBin} className="modify_icon" />
-                    </button>
-                    {/* Condition pour afficher la pop-up de modification d'étape */}
-                    {isStepPopUpOpen && selectedScenarioIndex !== null && selectedStepIndex !== null && (
-                      <PopUpModifStep
-                        step={scenarios[selectedScenarioIndex].steps[selectedStepIndex]}
-                        onClose={closeModifyStepPopUp}
-                        selectedScenarioIndex={selectedScenarioIndex}
-                        selectedStepIndex={selectedStepIndex}
-                        modifyStep={modifyStep}
-                      />
-                    )}
-                  </li>
-                ))}
+                <table border="1">
+                  <thead>
+                    <tr>
+                      <th>Nom de l'Etape</th>
+                      <th>Age</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {scenario.steps.map((step, stepIndex) => (
+                    <tr key={stepIndex}>
+                      <td>{step.stepName}</td>
+                      <td>{step.age}</td>
+                      <td>{step.taille}</td>
+                      <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
+                        <img src={IconDustBin} className="delete-icon" />
+                      </button>
+                      <button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
+                        <img src={IconModifyBin} className="modify_icon" />
+                      </button>
+                      {/* Condition pour afficher la pop-up de modification d'étape */}
+                      {isStepPopUpOpen && selectedScenarioIndex !== null && selectedStepIndex !== null && (
+                        <PopUpModifStep
+                          step={scenarios[selectedScenarioIndex].steps[selectedStepIndex]}
+                          onClose={closeModifyStepPopUp}
+                          selectedScenarioIndex={selectedScenarioIndex}
+                          selectedStepIndex={selectedStepIndex}
+                          modifyStep={modifyStep}
+                        />
+                      )}
+                    </tr>
+                    ))}
+                  </tbody>
+                </table>              
               </ul>
             </li>
           ))}
         </ul>
       </div>
-
       <button onClick={saveData}>Enregistrer les Données</button>
       {successMessage && <div className="success-message">{successMessage}</div>}
     </div>

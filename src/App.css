@@ -23,6 +23,11 @@ img {
   height:10px;
 }
 
+table {
+  margin: 0 auto; /* Cette règle de style centre le tableau horizontalement */
+  width: 50%; /* Ajuste la largeur du tableau selon tes besoins */
+}
+
 /* App.css */
 .delete-icon {
   width: 15px; /* Ajoutez d'autres styles spécifiques à votre image delete-icon */
