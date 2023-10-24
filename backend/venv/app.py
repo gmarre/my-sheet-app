@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, send_file
 from flask_cors import CORS
 from docx import Document
+from docx.shared import Pt, RGBColor
 import json
 
 app = Flask(__name__)
@@ -40,22 +41,29 @@ def generate_docx():
         table = doc.add_table(rows=1, cols=3)
         table.autofit = False
 
-        # Ajoute les en-têtes du tableau
+        # Ajoute les en-têtes du tableau et définit les bordures
         for i, header in enumerate(['Étape', 'Âge', 'Taille']):
-            table.cell(0, i).text = header
+            cell = table.cell(0, i)
+            cell.text = header
+            cell.paragraphs[0].runs[0].font.size = Pt(12)
+            cell.paragraphs[0].runs[0].bold = True
+            cell.paragraphs[0].runs[0].underline = True
+            cell.paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 0, 0)
 
         # Ajoute les étapes dans le tableau
         for step in scenario['steps']:
             row_cells = table.add_row().cells
-            row_cells[0].text = step['stepName']
-            row_cells[1].text = str(step['age'])  # Convertit en chaîne pour éviter les problèmes avec les nombres
-            row_cells[2].text = str(step['taille'])
-
+            for i, content in enumerate([step['stepName'], str(step['age']), str(step['taille'])]):
+                cell = row_cells[i]
+                cell.text = content
+                cell.paragraphs[0].runs[0].font.size = Pt(20)
+                cell.paragraphs[0].runs[0].font.color.rgb = RGBColor(0, 255, 0)
+                
     # Sauvegarde le document Word
-    doc.save('output.docx')
+    doc.save('VTP_TEST.docx')
 
     # Envoie le fichier Word généré
-    return send_file('output.docx')
+    return send_file('VTP_TEST.docx', as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
