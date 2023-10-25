@@ -1,3 +1,17 @@
 {
-  "scenarios": []
+  "scenarios": [
+    {
+      "scenarioName": "c",
+      "applicableVersion": "aa",
+      "requirements": "ze",
+      "scenarioDescription": "aa",
+      "steps": [
+        {
+          "stepName": "zdzd",
+          "stepDescription": "deded",
+          "expectedResult": "eedd"
+        }
+      ]
+    }
+  ]
 }

@@ -8,11 +8,17 @@ import IconModifyBin from '../../images/modify.png'
 
 const GenerateVTP = () => {
     const [scenarios, setScenarios] = useState([]);
-    const [newScenario, setNewScenario] = useState('');
+    const [newScenario, setNewScenario] = useState({
+      scenarioName: '',
+      applicableVersion: '',
+      requirements: '',
+      scenarioDescription: '',
+      steps: [],
+    });
     const [newStep, setNewStep] = useState({
         stepName: '',
-        age: 0,
-        taille: 0,
+        stepDescription: '',
+        expectedResult: '',
     });
 
     const [isPopUpOpen, setPopUpOpen] = useState(false);
@@ -26,20 +32,29 @@ const GenerateVTP = () => {
 
 
     const handleScenarioChange = (e) => {
-        setNewScenario(e.target.value);
+      setNewScenario({
+        ...newScenario,
+        [e.target.name]: e.target.value,
+      })
     };
 
     const handleStepChange = (e) => {
-        setNewStep({
-        ...newStep,
-        [e.target.name]: e.target.value,
-        });
+      setNewStep({
+      ...newStep,
+      [e.target.name]: e.target.value,
+      });
     };
 
     const addScenario = () => {
-        console.log('addScenario called');
-        setScenarios([...scenarios, { scenarioName: newScenario, steps: [] }]);
-        setNewScenario('');
+      console.log('addScenario called');
+      setScenarios([...scenarios, newScenario]);
+      setNewScenario({
+        scenarioName: '',
+        applicableVersion: '',
+        requirements: '',
+        scenarioDescription: '',
+        steps: [],
+      });
     };
 
     const addStep = () => {
@@ -47,12 +62,12 @@ const GenerateVTP = () => {
 
         const newStepInstance = {
         stepName: newStep.stepName,
-        age: newStep.age,
-        taille: newStep.taille,
+        stepDescription: newStep.stepDescription,
+        expectedResult: newStep.expectedResult,
         };
 
         if (scenarios.length === 0) {
-        scenarios.push({ scenarioName: 'Default', steps: [newStepInstance] });
+        scenarios.push({ scenarioName: 'Default', applicableVersion : '', requirements : '', scenarioDescription : '', steps: [newStepInstance] });
         } else {
         const lastScenarios = scenarios[scenarios.length - 1]
         lastScenarios.steps.push(newStepInstance);
@@ -60,8 +75,8 @@ const GenerateVTP = () => {
 
     setNewStep({
         stepName: '',
-        age: 0,
-        taille: 0,
+        stepDescription: '',
+        expectedResult: '',
     });
 
 
@@ -72,7 +87,7 @@ const GenerateVTP = () => {
         const updatedScenarios = [...scenarios];
         updatedScenarios.splice(index, 1);
         setScenarios(updatedScenarios);
-    }
+    };
 
     const deleteStep = (index,indexStep) => {
         console.log("index scenario : " + index + " index step : " + indexStep)
@@ -80,7 +95,7 @@ const GenerateVTP = () => {
         const updatedScenarios = [...scenarios];
         updatedScenarios[index].steps.splice(indexStep, 1);
         setScenarios(updatedScenarios);
-    }
+    };
 
     const openModifyScenarioPopUp = (scenarioIndex) => {
         // Mettez à jour l'état pour indiquer que la pop-up doit être ouverte
@@ -171,23 +186,39 @@ const GenerateVTP = () => {
       <h1>Generate VTP</h1>
       <div>
         <h2>Ajouter un Scénario</h2>
-        <input type="text" value={newScenario} onChange={handleScenarioChange} />
+        <label>
+          Scenario Name : 
+          <input type="text" name="scenarioName" value={newScenario.scenarioName} onChange={handleScenarioChange} />
+        </label>
+        {/* Ajouter les nouveaux champs pour le scénario */}
+        <label>
+          Version Applicable:
+          <input type="text" name="applicableVersion" value={newScenario.applicableVersion} onChange={handleScenarioChange} />
+        </label>
+        <label>
+          Exigences:
+          <input type="text" name="requirements" value={newScenario.requirements} onChange={handleScenarioChange} />
+        </label>
+        <label>
+          Description du Scénario:
+          <input type="text" name="scenarioDescription" value={newScenario.scenarioDescription} onChange={handleScenarioChange} />
+        </label>
         <button onClick={addScenario}>Ajouter Scénario</button>
       </div>
 
       <div>
         <h2>Ajouter une Étape</h2>
         <label>
-          Nom de l'Étape:
+          Step Name : 
           <input type="text" name="stepName" value={newStep.stepName} onChange={handleStepChange} />
         </label>
         <label>
-          Âge:
-          <input type="number" name="age" value={newStep.age} onChange={handleStepChange} />
+          Step Description : 
+          <input type="text" name="stepDescription" value={newStep.stepDescription} onChange={handleStepChange} />
         </label>
         <label>
-          Taille:
-          <input type="number" name="taille" value={newStep.taille} onChange={handleStepChange} />
+          Expected Result : 
+          <input type="text" name="expectedResult" value={newStep.expectedResult} onChange={handleStepChange} />
         </label>
         <button onClick={addStep}>Ajouter Étape</button>
       </div>
@@ -197,13 +228,45 @@ const GenerateVTP = () => {
         <ul>
           {scenarios.map((scenario, index) => (
             <li key={index}>
-              {scenario.scenarioName}
-              <button name="DeleteScenario" value="Delete Scenario" onClick={() => deleteScenario(index)}>
-                <img src={IconDustBin} className="delete-icon" />
-              </button>
-              <button onClick={() => openModifyScenarioPopUp(index)}>
-                <img src={IconModifyBin} className="modify_icon" />
-              </button>
+              <ul>
+                <table border="1" cellpadding='5' cellspacing="2">
+                  <caption>Scenario {index}</caption>
+                  <tr>
+                    <th> Scenario Name </th>
+                    <td> {scenario.scenarioName} </td>
+                  </tr>
+                  <tr>
+                    <th> Applicable Version </th>
+                    <td> {scenario.applicableVersion} </td>
+                  </tr>
+                  <tr>
+                    <th> Requirements </th>
+                    <td> {scenario.requirements} </td>
+                  </tr>
+                  <tr>
+                    <th> Scenario Description </th>
+                    <td> {scenario.scenarioDescription} </td>
+                  </tr>
+                  <tr>
+                    <th> Update </th>
+                    <td> 
+                      <button onClick={() => openModifyScenarioPopUp(index)} className='modify-icon modify'>
+                        <img src={IconModifyBin} className="modify_icon" />
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th> Delete </th>
+                    <td> 
+                      <button name="DeleteScenario" value="Delete Scenario" onClick={() => deleteScenario(index)} className='delete-icon delete'>
+                        <img src={IconDustBin} className="delete-icon" />
+                      </button>
+                    </td>
+                  </tr>
+                
+                </table>
+              </ul>
+
               {/* Condition pour afficher la pop-up de modification */}
               {isPopUpOpen && selectedScenarioIndex === index && (
                 <PopUpModifScenario
@@ -214,12 +277,15 @@ const GenerateVTP = () => {
                 />
               )}
               <ul>
+                
                 <table border="1">
+                  <caption>Steps of the Scenario {index} </caption>
                   <thead>
                     <tr>
-                      <th>Nom de l'Etape</th>
-                      <th>Age</th>
-                      <th>Actions</th>
+                      <th>Index</th>
+                      <th>Step Name</th>
+                      <th>Step Description</th>
+                      <th>Expected Result</th>
                       <th>Delete</th>
                       <th>Update</th>
                     </tr>
@@ -227,15 +293,16 @@ const GenerateVTP = () => {
                   <tbody>
                     {scenario.steps.map((step, stepIndex) => (
                     <tr key={stepIndex}>
+                      <td>{stepIndex}</td>
                       <td>{step.stepName}</td>
-                      <td>{step.age}</td>
-                      <td>{step.taille}</td>
+                      <td>{step.stepDescription}</td>
+                      <td>{step.expectedResult}</td>
                       <td>
-                        <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)}> 
+                        <button name="DeleteStep" value="Delete Step" onClick={() => deleteStep(index, stepIndex)} className='delete-icon delete'> 
                         <img src={IconDustBin} className="delete-icon" />
                       </button>
                       </td>
-                      <td><button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)}>
+                      <td><button name="ModifyStep" value="Modify Step" onClick={() => openModifyStepPopUp(index, stepIndex)} className='modify-icon modify'>
                         <img src={IconModifyBin} className="modify_icon" />
                       </button>
                       </td>
