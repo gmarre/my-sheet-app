@@ -193,7 +193,13 @@ const GenerateVTP = () => {
         {/* Ajouter les nouveaux champs pour le scénario */}
         <label>
           Version Applicable:
-          <input type="text" name="applicableVersion" value={newScenario.applicableVersion} onChange={handleScenarioChange} />
+          <select name="applicableVersion" id="applicableVersion" value={newScenario.applicableVersion} onChange={handleScenarioChange}>
+            <option disabled selected value="">Select a version</option>
+            <option value="VAIT">VAIT</option>
+            <option value="V0">V0</option>
+            <option value="V1">V1</option>
+            <option value="V2">V2</option>
+          </select>
         </label>
         <label>
           Exigences:

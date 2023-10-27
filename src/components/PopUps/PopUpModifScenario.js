@@ -48,7 +48,13 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
             </label>
             <label>
               Applicable Version ?
-              <input type ="text" name="applicableVersion" placeholder={scenario.applicableVersion} onChange={handleModifyVersionChange} />
+              <select name="applicableVersion" id="applicableVersion" onChange={handleModifyVersionChange}>
+                <option disabled selected value="">Select a version</option>
+                <option value="VAIT">VAIT</option>
+                <option value="V0">V0</option>
+                <option value="V1">V1</option>
+                <option value="V2">V2</option>
+              </select>
             </label>
             <label>
               Scenario Requirements
