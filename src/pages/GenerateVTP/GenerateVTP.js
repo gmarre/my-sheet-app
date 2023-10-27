@@ -11,7 +11,7 @@ const GenerateVTP = () => {
     const [newScenario, setNewScenario] = useState({
       scenarioName: '',
       applicableVersion: '',
-      requirements: '',
+      requirements: [],
       scenarioDescription: '',
       steps: [],
     });
@@ -51,10 +51,21 @@ const GenerateVTP = () => {
       setNewScenario({
         scenarioName: '',
         applicableVersion: '',
-        requirements: '',
+        requirements: [],
         scenarioDescription: '',
         steps: [],
       });
+    };
+
+    const addRequirement = () => {
+      console.log('addRequirement called');
+      // Vérifiez si la nouvelle exigence n'est pas une chaîne vide
+      setNewScenario({
+        ...newScenario,
+        requirements: [...newScenario.requirements, newScenario.requirementsInput],
+        requirementsInput: [], // Réinitialisez l'input des exigences
+      });
+
     };
 
     const addStep = () => {
@@ -67,7 +78,7 @@ const GenerateVTP = () => {
         };
 
         if (scenarios.length === 0) {
-        scenarios.push({ scenarioName: 'Default', applicableVersion : '', requirements : '', scenarioDescription : '', steps: [newStepInstance] });
+        scenarios.push({ scenarioName: 'Default', applicableVersion : '', requirements : [], scenarioDescription : '', steps: [newStepInstance] });
         } else {
         const lastScenarios = scenarios[scenarios.length - 1]
         lastScenarios.steps.push(newStepInstance);
@@ -204,6 +215,8 @@ const GenerateVTP = () => {
         <label>
           Exigences:
           <input type="text" name="requirements" value={newScenario.requirements} onChange={handleScenarioChange} />
+          <button onClick={addRequirement}>Add Requirement</button>
+          <ul>{newScenario.requirements}</ul>
         </label>
         <label>
           Description du Scénario:
