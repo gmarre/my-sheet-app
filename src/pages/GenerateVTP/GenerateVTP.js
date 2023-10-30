@@ -20,6 +20,7 @@ const GenerateVTP = () => {
         stepDescription: '',
         expectedResult: '',
     });
+    const [newRequirement, setNewRequirement] = useState('');
 
     const [isPopUpOpen, setPopUpOpen] = useState(false);
     const [selectedScenarioIndex, setSelectedScenarioIndex] = useState(null);
@@ -36,6 +37,10 @@ const GenerateVTP = () => {
         ...newScenario,
         [e.target.name]: e.target.value,
       })
+    };
+
+    const handleScenarioReqChange = (e) => {
+      setNewRequirement(e.target.value);
     };
 
     const handleStepChange = (e) => {
@@ -59,14 +64,15 @@ const GenerateVTP = () => {
 
     const addRequirement = () => {
       console.log('addRequirement called');
-      // Vérifiez si la nouvelle exigence n'est pas une chaîne vide
-      setNewScenario({
-        ...newScenario,
-        requirements: [...newScenario.requirements, newScenario.requirementsInput],
-        requirementsInput: [], // Réinitialisez l'input des exigences
-      });
-
+      if (newRequirement.trim() !== '') {
+        setNewScenario((prevScenario) => ({
+          ...prevScenario,
+          requirements: [...prevScenario.requirements, newRequirement],
+        }));
+        setNewRequirement(''); // Réinitialise la nouvelle exigence après l'ajout
+      }
     };
+    
 
     const addStep = () => {
         console.log('addStep called');
@@ -201,7 +207,6 @@ const GenerateVTP = () => {
           Scenario Name : 
           <input type="text" name="scenarioName" value={newScenario.scenarioName} onChange={handleScenarioChange} />
         </label>
-        {/* Ajouter les nouveaux champs pour le scénario */}
         <label>
           Version Applicable:
           <select name="applicableVersion" id="applicableVersion" value={newScenario.applicableVersion} onChange={handleScenarioChange}>
@@ -214,9 +219,13 @@ const GenerateVTP = () => {
         </label>
         <label>
           Exigences:
-          <input type="text" name="requirements" value={newScenario.requirements} onChange={handleScenarioChange} />
+          <input type="text" name="requirements" onChange={handleScenarioReqChange} placeholder='Write Requirement Name'/>
           <button onClick={addRequirement}>Add Requirement</button>
-          <ul>{newScenario.requirements}</ul>
+          <ul>
+            {newScenario.requirements.map((req, index) => (
+              <li key={index}>{req}</li>
+            ))}
+          </ul>
         </label>
         <label>
           Description du Scénario:
@@ -260,7 +269,13 @@ const GenerateVTP = () => {
                   </tr>
                   <tr>
                     <th> Requirements </th>
-                    <td> {scenario.requirements} </td>
+                    <td> 
+                      <ul>
+                        {scenario.requirements.map((requirement, index) => (
+                          <li key={index}>{requirement}</li>
+                        ))}
+                      </ul> 
+                    </td>
                   </tr>
                   <tr>
                     <th> Scenario Description </th>
