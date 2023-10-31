@@ -5,7 +5,6 @@ import './PopUpModifScenario.css';
 const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
     
     const message = `Modifier le nom du Scénario d'index ${selectedScenarioIndex} ? ${scenario.applicableVersion}`;
-    const nameScenario = scenario ? scenario.scenarioName : '';
     
     const openPopUp = () => {
       console.log('Pop-up ouverte');
@@ -24,8 +23,8 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
       scenario.applicableVersion = e.target.value;
     };
 
-    const handleModifyRequirementsChange = (e) => {
-      scenario.requirements = e.target.value;
+    const handleModifyRequirementsChange = (e,index) => {
+      scenario.requirements[index] = e.target.value;
     };
 
     const handleModifyDescriptionChange = (e) => {
@@ -58,7 +57,12 @@ const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
             </label>
             <label>
               Scenario Requirements
-              <input type ="text" name="requirements" placeholder={scenario.requirements} onChange={handleModifyRequirementsChange} />
+              <ul>
+                {scenario.requirements.map((req, index) => (
+                  <li key={index}><input type ="text" name="requirements" placeholder={req} onChange={(e) => handleModifyRequirementsChange(e, index)} /></li>
+                ))}
+              </ul>
+              
             </label>
             <label>
               Scenario Description
