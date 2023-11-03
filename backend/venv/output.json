@@ -1,0 +1,20 @@
+{
+  "exigences": [
+    {
+      "name": "E_YODA_SYS-581",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-582",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-584",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-891",
+      "implementationVersion": "V0"
+    }
+  ]
+}

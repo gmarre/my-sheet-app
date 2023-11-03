@@ -3,6 +3,9 @@ from flask_cors import CORS
 from docx import Document
 from docx.shared import Pt, RGBColor
 import json
+import spacy
+import PyPDF2
+from reqExtraction import extract_requirements_from_pdf, convert_requirements_to_json, extract_text_from_pdf
 
 app = Flask(__name__)
 CORS(app)
@@ -64,6 +67,42 @@ def generate_docx():
 
     # Envoie le fichier Word généré avec le bon nom de fichier
     return send_file('VTP_TEST.docx', as_attachment=True, download_name='VTP_TEST.docx')
+
+
+@app.route('/upload-pdf', methods=['POST'])
+def upload_pdf():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        # Enregistre le fichier PDF sur le serveur
+        uploaded_file.save('input.pdf')
+
+        pdf_text = extract_text_from_pdf('input.pdf')
+
+        # Appelle la fonction d'extraction d'exigences ici
+        extracted_requirements = extract_requirements_from_pdf(pdf_text)
+
+        # Convertit les exigences en fichier JSON
+        json_requirements = convert_requirements_to_json(extracted_requirements)
+
+        # Sauvegarde le fichier JSON sur le serveur
+        with open('output.json', 'w') as json_file:
+            json.dump(json_requirements, json_file, indent=2)
+
+        return jsonify({'message': 'Fichier PDF téléchargé et JSON généré avec succès.'})
+    else:
+        return jsonify({'error': 'Aucun fichier sélectionné.'})
+
+@app.route('/get-json')
+def get_json():
+    try:
+        # Ajoute ici la logique pour générer le fichier JSON (si ce n'est pas déjà fait)
+        # Assure-toi que le fichier JSON est généré dans le même dossier que ton serveur Flask
+        json_file_path = 'output.json'
+
+        # Envoie le fichier JSON en tant que réponse
+        return send_from_directory('.', json_file_path, as_attachment=True)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

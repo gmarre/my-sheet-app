@@ -2,23 +2,20 @@
   "scenarios": [
     {
       "scenarioName": "pcdu",
-      "applicableVersion": "5454",
-      "requirements": "15",
-      "scenarioDescription": "545",
+      "applicableVersion": "V1",
+      "requirements": [
+        "E_YODA_2",
+        "E_YODA_2",
+        "E_YODA_18"
+      ],
+      "scenarioDescription": "Ce test c de la merde",
       "steps": [
         {
-          "stepName": "fjvdvdv",
-          "stepDescription": "dcdcd",
-          "expectedResult": "cddcdc"
+          "stepName": "step1",
+          "stepDescription": "lkfdf",
+          "expectedResult": "hyjyhtg"
         }
       ]
-    },
-    {
-      "scenarioName": "fg",
-      "applicableVersion": "fbfb",
-      "requirements": "fddfb",
-      "scenarioDescription": "dfbfb",
-      "steps": []
     }
   ]
 }
