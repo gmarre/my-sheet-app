@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify, render_template, send_file
+from flask import Flask, request, jsonify, render_template, send_file, send_from_directory
 from flask_cors import CORS
 from docx import Document
 from docx.shared import Pt, RGBColor
 import json
 import spacy
 import PyPDF2
+import os
 from reqExtraction import extract_requirements_from_pdf, convert_requirements_to_json, extract_text_from_pdf
 
 app = Flask(__name__)
@@ -92,17 +93,25 @@ def upload_pdf():
     else:
         return jsonify({'error': 'Aucun fichier sélectionné.'})
 
-@app.route('/get-json')
+@app.route('/get-json', methods=['GET'])
 def get_json():
     try:
-        # Ajoute ici la logique pour générer le fichier JSON (si ce n'est pas déjà fait)
-        # Assure-toi que le fichier JSON est généré dans le même dossier que ton serveur Flask
+        print("Entrée dans la fonction get_json")  # Ajoute cette ligne
         json_file_path = 'output.json'
+        
+        # Récupère le chemin absolu du fichier JSON
+        absolute_path = os.path.abspath(json_file_path)
+        print(f"Chemin absolu du fichier JSON : {absolute_path}")
 
-        # Envoie le fichier JSON en tant que réponse
-        return send_from_directory('.', json_file_path, as_attachment=True)
+        # Ouverture du fichier et lecture du contenu
+        with open(json_file_path, 'r') as file:
+            json_content = file.read()
+
+        # Envoie le contenu JSON en tant que réponse
+        return jsonify(json.loads(json_content))
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
+

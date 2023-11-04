@@ -1,8 +1,336 @@
 {
   "exigences": [
     {
-      "name": "E_YODA_SYS-581",
+      "name": "E_YODA_SYS-842",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-770",
       "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1359",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-497",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-906",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-908",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2606",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2301",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-505",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1779",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1333",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1780",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2571",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1337",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2611",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1342",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1345",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1346",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1348",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2637",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2635",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2636",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2055",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2612",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1452",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1453",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1454",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1456",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-3073",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1479",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1482",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1484",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1485",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1809",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1486",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1813",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1488",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1822",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2574",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2576",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2578",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2580",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2581",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1490",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1491",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1493",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2584",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2587",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2588",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2593",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2595",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2597",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2598",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2600",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1352",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1354",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1356",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2560",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2561",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2563",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1495",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-865",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-844",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-846",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-542",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-546",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-548",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-549",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-551",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-849",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-554",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1796",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-850",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-851",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-557",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-570",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-572",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-868",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-869",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-575",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-870",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-577",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-890",
+      "implementationVersion": "VAIT"
     },
     {
       "name": "E_YODA_SYS-582",
@@ -15,6 +343,738 @@
     {
       "name": "E_YODA_SYS-891",
       "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-586",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1364",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1365",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1367",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1369",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1371",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1477",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-900",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-900",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1389",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2300",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1499",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1501",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1503",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1504",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1507",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1509",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1511",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1513",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1514",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1517",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1519",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1520",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1522",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1525",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1526",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1528",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-872",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-874",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-876",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-877",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-879",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-880",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-882",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-884",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-885",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-887",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-888",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1805",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-854",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1808",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-564",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-858",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-860",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-863",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-565",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-567",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-568",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-856",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-862",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-859",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1810",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1811",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1414",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1415",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1417",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1814",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1816",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1419",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1420",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2057",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1825",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2051",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2548",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2080",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1533",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-669",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1535",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2605",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-866",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-677",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1798",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2303",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2298",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1339",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1431",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2543",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2615",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2616",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-721",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2625",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2567",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2082",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2074",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2075",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2076",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2309",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2310",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2063",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2081",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2314",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2603",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2639",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2318",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2078",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2638",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2641",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2324",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2643",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2645",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2647",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2649",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-897",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-901",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1409",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1411",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1817",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-903",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-776",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1403",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-777",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1402",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1494",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2064",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2602",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2065",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2067",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2070",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2069",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2071",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1548",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1549",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1550",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1551",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2062",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2613",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1428",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2659",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1471",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1441",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1777",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1442",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1472",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1474",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2618",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1476",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1478",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2655",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1393",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2311",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1398",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1498",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1829",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1541",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1830",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1544",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-3069",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1546",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2617",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1766",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1769",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1772",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1768",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2542",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-893",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2557",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1786",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1783",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1785",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2573",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-892",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1789",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1790",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1791",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2628",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1794",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2570",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1795",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2624",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1826",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-2559",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1827",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-1831",
+      "implementationVersion": "V0"
+    },
+    {
+      "name": "E_YODA_SYS-2306",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2591",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2627",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1833",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-1818",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-1820",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-2554",
+      "implementationVersion": "V1"
+    },
+    {
+      "name": "E_YODA_SYS-752",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-756",
+      "implementationVersion": "VAIT"
+    },
+    {
+      "name": "E_YODA_SYS-757",
+      "implementationVersion": "VAIT"
     }
   ]
 }

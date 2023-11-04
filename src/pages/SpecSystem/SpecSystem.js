@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './SpecSystem.css';
 
+
 const SpecSystem = () => {
   const [file, setFile] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [jsonContent, setJsonContent] = useState(null);
+  const [loading, setLoading] = useState(false);
+
 
 
   const handleFileChange = (event) => {
@@ -15,39 +18,44 @@ const SpecSystem = () => {
   };
 
   const handleUpload = async () => {
+    setLoading(true);
+
     const formData = new FormData();
     formData.append('file', file);
 
     try {
-      // Envoie le fichier au backend Flask
-      const response = await axios.post('http://localhost:5000/upload-pdf', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+        // Envoie le fichier au backend Flask
+        const response = await axios.post('http://localhost:5000/upload-pdf', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
 
-      console.log(response.data); // Affiche la réponse du backend (peut être modifié selon les besoins)
-      setSuccessMessage('Données enregistrées avec succès.');
-      // Réinitialise le message après un certain délai
-      setTimeout(() => {
-        setSuccessMessage(null);
-      }, 3000); // 3000 millisecondes (3 secondes) par exemple
+        console.log(response.data);
+        setSuccessMessage('Données enregistrées avec succès.');
+        setTimeout(() => {
+            setSuccessMessage(null);
+        }, 3000);
 
-      // Si tu veux récupérer le fichier JSON généré
-      const jsonResponse = await axios.get('http://localhost:5000/get-json');
-      setJsonContent(jsonResponse.data); // Stocke le contenu JSON dans l'état
-      console.log(jsonResponse.data); // Affiche le fichier JSON généré
-      setJsonContent(jsonResponse.data); // Stocke le contenu JSON dans l'état
+        const jsonResponse = await axios.get('http://localhost:5000/get-json');
+        setJsonContent(jsonResponse.data);
+        console.log(jsonResponse.data);
+        setJsonContent(jsonResponse.data);
     } catch (error) {
-      console.error(error);
+        console.error(error);
+    } finally {
+        setLoading(false); // Désactive le chargement, que l'appel réussisse ou échoue
     }
-  };
+};
+
 
   return (
     <div className="spec-system">
       <h1>Bienvenue sur Spec System</h1>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Charger et générer JSON</button>
+      <button onClick={handleUpload} disabled={loading}>
+        {loading ? 'Chargement...' : 'Charger et générer JSON'}
+      </button>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {jsonContent && (
         <div>
