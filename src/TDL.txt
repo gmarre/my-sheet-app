@@ -1,0 +1,18 @@
+TO DO LIST : 
+
+General : 
+- js : Afficher dès le départ la route : Generate VTP
+
+Spec Systeme : 
+- js : Afficher plus joliment les différentes specs et recupérer peut etre en plus les autres infos des exigences
+
+Generate VTP : 
+- js : Quand on appuie sur "ajouter un scenario" il faudrait que l'input d'"Exgicences" se vide 
+- css : Refaire l'affichage des exigences dans le tableau scenario
+- js : à l'ouverture du update pouvoir ajouter une exigence supplémentaire ou en enlever une
+- js : rajouter à la place de l'input step name -> 3 inputs :
+    - Key word (select item) : Check/ Modify / Send / Autres ...
+    - Service and SubService : Restreindre à nombre
+    - Other Description : Champs Texte
+- Rajouter un bouton pour ajouter des exigences alors qu'on est passé à un scenario suivant (bouton juste en dessous de requirements)
+- Pareil pour rajouter un step dans un scenario qui a déjà été passé

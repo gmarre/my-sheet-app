@@ -232,8 +232,9 @@ const GenerateVTP = () => {
           {scenarios.map((scenario, index) => (
             <li key={index}>
               <ul>
-                <table border="1" cellpadding="5" cellspacing="2">
-                  <caption>Scenario {index}</caption>
+              <table border="1" cellPadding="5" cellSpacing="2">
+                <caption>Scenario {index}</caption>
+                <thead>
                   <tr>
                     <th> Scenario Name </th>
                     <td> {scenario.scenarioName} </td>
@@ -242,6 +243,8 @@ const GenerateVTP = () => {
                     <th> Applicable Version </th>
                     <td> {scenario.applicableVersion} </td>
                   </tr>
+                </thead>
+                <tbody>
                   <tr>
                     <th> Requirements </th>
                     <td>
@@ -260,7 +263,7 @@ const GenerateVTP = () => {
                     <th> Update </th>
                     <td>
                       <button onClick={() => openModifyScenarioPopUp(index)} className="modify-icon modify">
-                        <img src={IconModifyBin} className="modify_icon" />
+                        <img src={IconModifyBin} className="modify_icon" alt="Modify" />
                       </button>
                     </td>
                   </tr>
@@ -273,11 +276,13 @@ const GenerateVTP = () => {
                         onClick={() => deleteScenario(index)}
                         className="delete-icon delete"
                       >
-                        <img src={IconDustBin} className="delete-icon" />
+                        <img src={IconDustBin} className="delete-icon" alt="Delete" />
                       </button>
                     </td>
                   </tr>
-                </table>
+                </tbody>
+              </table>
+
               </ul>
 
               {/* Condition pour afficher la pop-up de modification */}
@@ -290,61 +295,62 @@ const GenerateVTP = () => {
                 />
               )}
               <ul>
-                <table border="1">
-                  <caption>Steps of the Scenario {index} </caption>
-                  <thead>
-                    <tr>
-                      <th>Index</th>
-                      <th>Step Name</th>
-                      <th>Step Description</th>
-                      <th>Expected Result</th>
-                      <th>Delete</th>
-                      <th>Update</th>
+              <table border="1">
+                <caption>Steps of the Scenario {index} </caption>
+                <thead>
+                  <tr>
+                    <th>Index</th>
+                    <th>Step Name</th>
+                    <th>Step Description</th>
+                    <th>Expected Result</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {scenario.steps.map((step, stepIndex) => (
+                    <tr key={stepIndex}>
+                      <td>{stepIndex}</td>
+                      <td>{step.stepName}</td>
+                      <td>{step.stepDescription}</td>
+                      <td>{step.expectedResult}</td>
+                      <td>
+                        <button
+                          name="DeleteStep"
+                          value="Delete Step"
+                          onClick={() => deleteStep(index, stepIndex)}
+                          className="delete-icon delete"
+                        >
+                          <img src={IconDustBin} className="delete-icon" alt="Delete" />
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          name="ModifyStep"
+                          value="Modify Step"
+                          onClick={() => openModifyStepPopUp(index, stepIndex)}
+                          className="modify-icon modify"
+                        >
+                          <img src={IconModifyBin} className="modify_icon" alt="Modify" />
+                        </button>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {scenario.steps.map((step, stepIndex) => (
-                      <tr key={stepIndex}>
-                        <td>{stepIndex}</td>
-                        <td>{step.stepName}</td>
-                        <td>{step.stepDescription}</td>
-                        <td>{step.expectedResult}</td>
-                        <td>
-                          <button
-                            name="DeleteStep"
-                            value="Delete Step"
-                            onClick={() => deleteStep(index, stepIndex)}
-                            className="delete-icon delete"
-                          >
-                            <img src={IconDustBin} className="delete-icon" />
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            name="ModifyStep"
-                            value="Modify Step"
-                            onClick={() => openModifyStepPopUp(index, stepIndex)}
-                            className="modify-icon modify"
-                          >
-                            <img src={IconModifyBin} className="modify_icon" />
-                          </button>
-                        </td>
-                        {/* Condition pour afficher la pop-up de modification d'étape */}
-                        {isStepPopUpOpen &&
-                          selectedScenarioIndex !== null &&
-                          selectedStepIndex !== null && (
-                            <PopUpModifStep
-                              step={scenarios[selectedScenarioIndex].steps[selectedStepIndex]}
-                              onClose={closeModifyStepPopUp}
-                              selectedScenarioIndex={selectedScenarioIndex}
-                              selectedStepIndex={selectedStepIndex}
-                              modifyStep={modifyStep}
-                            />
-                          )}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                  ))}
+                  {/* Condition pour afficher la pop-up de modification d'étape */}
+                  {isStepPopUpOpen &&
+                    selectedScenarioIndex !== null &&
+                    selectedStepIndex !== null && (
+                      <PopUpModifStep
+                        step={scenarios[selectedScenarioIndex].steps[selectedStepIndex]}
+                        onClose={closeModifyStepPopUp}
+                        selectedScenarioIndex={selectedScenarioIndex}
+                        selectedStepIndex={selectedStepIndex}
+                        modifyStep={modifyStep}
+                      />
+                    )}
+                </tbody>
+              </table>
+
               </ul>
             </li>
           ))}

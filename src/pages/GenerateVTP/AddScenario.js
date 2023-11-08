@@ -10,14 +10,14 @@ const AddScenario = ({ newScenario, handleScenarioChange, handleScenarioReqChang
         <input type="text" name="scenarioName" value={newScenario.scenarioName} onChange={handleScenarioChange} />
       </label>
       <label>
-        Version Applicable:
-        <select name="applicableVersion" id="applicableVersion" value={newScenario.applicableVersion} onChange={handleScenarioChange}>
-          <option disabled selected value="">Select a version</option>
-          <option value="VAIT">VAIT</option>
-          <option value="V0">V0</option>
-          <option value="V1">V1</option>
-          <option value="V2">V2</option>
-        </select>
+      <select name="applicableVersion" id="applicableVersion" defaultValue={newScenario.applicableVersion} onChange={handleScenarioChange}>
+        <option disabled value="">Select a version</option>
+        <option value="VAIT">VAIT</option>
+        <option value="V0">V0</option>
+        <option value="V1">V1</option>
+        <option value="V2">V2</option>
+      </select>
+
       </label>
       <label>
         Exigences:
