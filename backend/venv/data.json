@@ -1,21 +1,11 @@
 {
   "scenarios": [
     {
-      "scenarioName": "pcdu",
+      "scenarioName": "gfds",
       "applicableVersion": "V1",
-      "requirements": [
-        "E_YODA_2",
-        "E_YODA_2",
-        "E_YODA_18"
-      ],
-      "scenarioDescription": "Ce test c de la merde",
-      "steps": [
-        {
-          "stepName": "step1",
-          "stepDescription": "lkfdf",
-          "expectedResult": "hyjyhtg"
-        }
-      ]
+      "requirements": [],
+      "scenarioDescription": "gfdsd",
+      "steps": []
     }
   ]
 }
