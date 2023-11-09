@@ -17,7 +17,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: calc(100% - 16px); /* Ajuste la largeur de l'input avec une marge de 8px de chaque côté */
   padding: 8px;
   margin-bottom: 15px;
 }
@@ -36,11 +36,11 @@ ul {
   list-style-type: none;
   padding: 0;
   margin-bottom: 20px;
-  margin-top: 20 px;
-  width : 100%
+  margin-top: 20px;
+  width: 100%;
 }
 .popup th {
-  width: 100%
+  width: 100%;
 }
 
 li {
@@ -51,7 +51,7 @@ li {
   margin-bottom: 20px;
   border: 1px solid #ddd;
   padding: 15px;
-  width: 100%
+  width: 100%;
 }
 
 .buttons-container {
@@ -59,7 +59,6 @@ li {
 }
 
 /* Styles pour les icônes */
-
 .modify-icon {
   width: 20px;
   height: 20px;
@@ -87,7 +86,7 @@ li {
 }
 
 .popup input {
-  width: 100%;
+  width: calc(100% - 16px); /* Ajuste la largeur de l'input avec une marge de 8px de chaque côté */
   padding: 8px;
   margin-bottom: 15px;
 }
@@ -101,13 +100,12 @@ button.modify {
 }
 
 button.delete {
-  background-color: transparent; 
+  background-color: transparent;
   margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 /* Styles pour le message de succès */
 .success-message {
@@ -116,4 +114,12 @@ button.delete {
   text-align: center;
   padding: 10px;
   margin-top: 20px;
+}
+
+.present {
+  color: green; /* Exigence présente dans les scénarios */
+}
+
+.absent {
+  color: red; /* Exigence absente dans les scénarios */
 }

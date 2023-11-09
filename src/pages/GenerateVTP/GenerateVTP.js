@@ -7,6 +7,8 @@ import PopUpModifStep from '../../components/PopUps/PopUpModifStep';
 import './GenerateVTP.css'; // Assurez-vous de créer ce fichier CSS
 import IconDustBin from '../../images/dustbin.png';
 import IconModifyBin from '../../images/modify.png';
+import CheckExistingReq from './CheckExistingReq.js'; // Assure-toi que le chemin est correct
+
 
 
 
@@ -208,6 +210,8 @@ const GenerateVTP = () => {
   return (
     <div className="generate-vtp">
       <h1>Generate VTP</h1>
+      <CheckExistingReq scenarios={scenarios} /> {/* Ajout du composant CheckExistingReq */}
+
       <AddScenario
         newScenario={newScenario}
         handleScenarioChange={handleScenarioChange}
@@ -356,6 +360,9 @@ const GenerateVTP = () => {
           ))}
         </ul>
       </div>
+
+      
+
       <button onClick={saveData}>Enregistrer les Données</button>
       {successMessage && <div className="success-message">{successMessage}</div>}
     </div>

@@ -7,6 +7,7 @@ import spacy
 import PyPDF2
 import os
 from reqExtraction import extract_requirements_from_pdf, convert_requirements_to_json, extract_text_from_pdf
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
 CORS(app)
@@ -64,10 +65,11 @@ def generate_docx():
                 cell.paragraphs[0].runs[0].font.color.rgb = RGBColor(0, 0, 0)  # Couleur noire
 
     # Sauvegarde le document Word avec le bon nom de fichier
-    doc.save('VTP_TEST.docx')
+    doc_path = os.path.join('src', 'results', 'VTP_TEST.docx')
+    doc.save(doc_path)
 
     # Envoie le fichier Word généré avec le bon nom de fichier
-    return send_file('VTP_TEST.docx', as_attachment=True, download_name='VTP_TEST.docx')
+    return send_file(doc_path, as_attachment=True, download_name='VTP_TEST.docx')
 
 
 @app.route('/upload-pdf', methods=['POST'])
@@ -86,7 +88,8 @@ def upload_pdf():
         json_requirements = convert_requirements_to_json(extracted_requirements)
 
         # Sauvegarde le fichier JSON sur le serveur
-        with open('output.json', 'w') as json_file:
+        json_path = '../../src/results/requirements.json'
+        with open(json_path, 'w') as json_file:
             json.dump(json_requirements, json_file, indent=2)
 
         return jsonify({'message': 'Fichier PDF téléchargé et JSON généré avec succès.'})
@@ -97,7 +100,7 @@ def upload_pdf():
 def get_json():
     try:
         print("Entrée dans la fonction get_json")  # Ajoute cette ligne
-        json_file_path = 'output.json'
+        json_file_path = '../../src/results/requirements.json'
         
         # Récupère le chemin absolu du fichier JSON
         absolute_path = os.path.abspath(json_file_path)

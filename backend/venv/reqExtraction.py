@@ -28,7 +28,14 @@ def extract_requirements_from_pdf(text):
     for sentence in text.split("\n"):
         document = nlp(sentence)
 
-        if len(document) >= 2 and document[0].text.strip() == "implementationVersion":
+        if document[0].tag_ == "REQ":
+            if "name" in current_requirement:
+                #requirements.append(current_requirement)
+                current_requirement = {}  # Réinitialise l'exigence en cours
+
+            current_requirement = {"name": document[0].text}
+            
+        elif len(document) >= 2 and document[0].text.strip() == "implementationVersion":
             if "name" in current_requirement:
                 current_requirement["implementationVersion"] = document[1].text.strip()
                 
@@ -38,12 +45,7 @@ def extract_requirements_from_pdf(text):
                     
                 current_requirement = {}  # Réinitialise l'exigence en cours
 
-        elif document[0].tag_ == "REQ":
-            if "name" in current_requirement:
-                #requirements.append(current_requirement)
-                current_requirement = {}  # Réinitialise l'exigence en cours
-
-            current_requirement = {"name": document[0].text}
+        
 
     # Ajoute la dernière exigence si elle existe et a une implementationVersion
     if "name" in current_requirement and "implementationVersion" in current_requirement:
