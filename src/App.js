@@ -16,7 +16,7 @@ import './App.css'; // Assurez-vous de créer ce fichier CSS
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className='app'>
         <Header />
 
         <Routes>

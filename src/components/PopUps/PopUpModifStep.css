@@ -9,14 +9,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .popup-content-step {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px; /* Ajustez la largeur selon vos préférences */
+}
+
+.choices-step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  border:none;
 }
 
 .popup-content-step h2 {
@@ -29,9 +37,9 @@
 }
 
 .popup-content-step input {
-  width: 10%;
+  width: 80%;
   padding: 8px;
-  margin-top: 5px;
+  margin-top: 1%;
   box-sizing: border-box;
 }
 
@@ -45,5 +53,5 @@
 }
 
 .popup-content-step button:last-child {
-  background-color: green;
+  background-color:  #0b4f7c;
 }

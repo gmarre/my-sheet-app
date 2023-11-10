@@ -1,5 +1,5 @@
 // pages/GenerateVTP/GenerateVTP.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AddScenario from './AddScenario';
 import AddStep from './AddStep';
 import PopUpModifScenario from '../../components/PopUps/PopUpModifScenario';
@@ -7,6 +7,7 @@ import PopUpModifStep from '../../components/PopUps/PopUpModifStep';
 import './GenerateVTP.css'; // Assurez-vous de créer ce fichier CSS
 import IconDustBin from '../../images/dustbin.png';
 import IconModifyBin from '../../images/modify.png';
+import logoHemeria from '../../images/logo-hemeria.png';
 import CheckExistingReq from './CheckExistingReq.js'; // Assure-toi que le chemin est correct
 
 
@@ -209,28 +210,40 @@ const GenerateVTP = () => {
 
   return (
     <div className="generate-vtp">
-      <h1>Generate VTP</h1>
-      <CheckExistingReq scenarios={scenarios} /> {/* Ajout du composant CheckExistingReq */}
+      <div className='logo-hemeria-container'>
+        <img className="logo-hemeria" src={logoHemeria} alt="Logo Hemeria"/>
+      </div>
+      
 
-      <AddScenario
-        newScenario={newScenario}
-        handleScenarioChange={handleScenarioChange}
-        handleScenarioReqChange={handleScenarioReqChange}
-        addScenario={addScenario}
-        addRequirement={addRequirement}
-      />
-      <AddStep
-        handleAddStep={handleAddStep}
-        newStep={newStep}
-        handleStepChange={handleStepChange}
-      />
+      <div className='columns-container'>
+        <div className='left-column'>
+          <AddScenario
+          newScenario={newScenario}
+          handleScenarioChange={handleScenarioChange}
+          handleScenarioReqChange={handleScenarioReqChange}
+          addScenario={addScenario}
+          addRequirement={addRequirement}
+          />
+          <AddStep
+          handleAddStep={handleAddStep}
+          newStep={newStep}
+          handleStepChange={handleStepChange}
+          />
+        </div>
+        <div className='right-column'>
+          <CheckExistingReq scenarios={scenarios} /> {/* Ajout du composant CheckExistingReq */}
+        </div>
+      </div>
+      
+
+      
 
 
 
 
 
 
-      <div>
+      <div className='display-scenarios-steps'>
         <h2>Scénarios</h2>
         <ul>
           {scenarios.map((scenario, index) => (
@@ -252,7 +265,7 @@ const GenerateVTP = () => {
                   <tr>
                     <th> Requirements </th>
                     <td>
-                      <ul>
+                      <ul className="inline-list">
                         {scenario.requirements.map((requirement, index) => (
                           <li key={index}>{requirement}</li>
                         ))}

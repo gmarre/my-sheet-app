@@ -19,7 +19,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 def extract_requirements_from_pdf(text):
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("en_core_web_md")
     nlp.add_pipe("custom_tokenizer", before="ner")
 
     requirements = []

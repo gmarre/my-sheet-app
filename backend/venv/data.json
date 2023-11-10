@@ -1,11 +1,25 @@
 {
   "scenarios": [
     {
-      "scenarioName": "gfds",
-      "applicableVersion": "V1",
-      "requirements": [],
-      "scenarioDescription": "gfdsd",
-      "steps": []
+      "scenarioName": "pcdu",
+      "applicableVersion": "V0",
+      "requirements": [
+        "E_YODA_8",
+        "E_YODA_9"
+      ],
+      "scenarioDescription": "je m'appelle jean jaque",
+      "steps": [
+        {
+          "stepName": "Send TC : 140.2, check mes couilles",
+          "stepDescription": "uytrez",
+          "expectedResult": "uytre kjhgfds"
+        },
+        {
+          "stepName": "SwitchMSAFE check ma foufoune",
+          "stepDescription": "gyn\u00e9cologue ",
+          "expectedResult": "ytrezgh"
+        }
+      ]
     }
   ]
 }

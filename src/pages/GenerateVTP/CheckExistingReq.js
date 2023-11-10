@@ -16,6 +16,7 @@ const CheckExistingReq = ({ scenarios }) => {
   return (
     <div className="check-existing-req">
       <ul>
+        <h2>List of Reqs in Spec</h2>
         {requirementsData.exigences.map((req) => (
           <li
             key={req.name}

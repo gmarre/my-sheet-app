@@ -1,11 +1,44 @@
 /* GenerateVTP.css */
 .generate-vtp {
-  max-width: 800px;
+  max-width: 95%;
   margin: 0 auto;
   font-family: 'Arial', sans-serif;
 }
 
+.left-column {
+  flex: 4;
+  padding: 20px; /* Ajoute un espacement intérieur */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Ajoute une ombre subtile */
+  background-color: #fff; /* Couleur de fond */
+  border-radius: 8px; /* Coins arrondis */
+  margin-top : 1%;
+}
+
+
+.right-column {
+  flex: 1;
+  padding: 20px; /* Ajoute un espacement intérieur */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre subtile */
+  background-color: #ffffff; /* Couleur de fond */
+  border-radius: 8px; /* Coins arrondis */
+  margin-left: 10px;
+  margin-top : 1%;
+}
+
+.display-scenarios-steps{
+  padding: 20px; /* Ajoute un espacement intérieur */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre subtile */
+  background-color: #ffffff; /* Couleur de fond */
+  border-radius: 8px; /* Coins arrondis */
+  margin-top: 1%;
+}
+
 h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
   text-align: center;
   color: #333;
 }
@@ -17,14 +50,23 @@ label {
 }
 
 input {
-  width: calc(100% - 16px); /* Ajuste la largeur de l'input avec une marge de 8px de chaque côté */
-  padding: 8px;
+  width: 100%;
+  padding: 10px;
   margin-bottom: 15px;
+  border: 1px solid #ccc; /* Ajoute une bordure grise */
+  border-radius: 4px; /* Ajoute des coins arrondis */
+  box-sizing: border-box; /* Garantit que la largeur inclut la bordure et le rembourrage */
+  transition: border-color 0.3s; /* Ajoute une transition pour un effet visuel */
 }
 
+/* Style lorsque l'input est en focus */
+input:focus {
+  outline: none; /* Supprime la bordure de focus par défaut */
+  border-color:  #0b4f7c2d; /* Change la couleur de la bordure en vert quand l'input est en focus */
+}
 /* Styles pour les boutons */
 button {
-  background-color: #4caf50;
+  background-color:  #0b4f7c;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -38,20 +80,26 @@ ul {
   margin-bottom: 20px;
   margin-top: 20px;
   width: 100%;
+  border: none;
 }
 .popup th {
   width: 100%;
+}
+
+/* Ajoute ces styles à ton fichier CSS */
+th {
+  background-color: #0b4f7c; /* Choisis la couleur de fond que tu préfères */
+  color: #fff; /* Couleur du texte, ajuste-la en fonction de la lisibilité */
+  width : 20%
 }
 
 li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
   padding: 15px;
   width: 100%;
+  border:none;
 }
 
 .buttons-container {
@@ -109,7 +157,7 @@ button.delete {
 
 /* Styles pour le message de succès */
 .success-message {
-  background-color: #4caf50;
+  background-color:  #0b4f7c;
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -122,4 +170,37 @@ button.delete {
 
 .absent {
   color: red; /* Exigence absente dans les scénarios */
+}
+
+/* Ajoute ces styles à ton fichier CSS */
+.columns-container {
+  display: flex;
+}
+
+caption {
+  margin-bottom: 1%;
+  font-weight: bold;
+}
+
+/* Ajoute ces styles à ton fichier CSS */
+ul.inline-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.inline-list li {
+  display: inline;
+}
+
+ul.inline-list li:not(:last-child):after {
+  content: ', ';
+}
+
+.logo-hemeria-container {
+  position: auto;
+  width: 50%; /* Ajuste la largeur selon tes besoins */
+  height: auto; /* Ajuste la hauteur automatiquement pour maintenir les proportions */
+  margin: auto;
+
 }

@@ -4,7 +4,7 @@ import './PopUpModifScenario.css';
 
 const PopUpModifScenario = ({ scenario, onClose, selectedScenarioIndex  }) => {
     
-    const message = `Modifier le nom du Scénario d'index ${selectedScenarioIndex} ? ${scenario.applicableVersion}`;
+    const message = `Modifier le nom du Scénario d'index ${scenario.scenarioName} ? ${scenario.applicableVersion}`;
     
     const openPopUp = () => {
       console.log('Pop-up ouverte');

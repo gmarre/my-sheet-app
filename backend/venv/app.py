@@ -65,7 +65,7 @@ def generate_docx():
                 cell.paragraphs[0].runs[0].font.color.rgb = RGBColor(0, 0, 0)  # Couleur noire
 
     # Sauvegarde le document Word avec le bon nom de fichier
-    doc_path = os.path.join('src', 'results', 'VTP_TEST.docx')
+    doc_path = '../../src/results/VTP_TEST.docx'
     doc.save(doc_path)
 
     # Envoie le fichier Word généré avec le bon nom de fichier

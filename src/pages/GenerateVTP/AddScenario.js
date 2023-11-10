@@ -23,7 +23,7 @@ const AddScenario = ({ newScenario, handleScenarioChange, handleScenarioReqChang
         Exigences:
         <input type="text" name="requirements" onChange={handleScenarioReqChange} placeholder='Write Requirement Name'/>
         <button onClick={addRequirement}>Add Requirement</button>
-        <ul>
+        <ul className="inline-list">
           {newScenario.requirements.map((req, index) => (
             <li key={index}>{req}</li>
           ))}
